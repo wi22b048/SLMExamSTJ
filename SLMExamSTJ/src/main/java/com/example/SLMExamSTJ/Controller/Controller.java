@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class Controller {
 
     String str;
-    int length = 0;
     @GetMapping("/modify")
     public String modifyString(String string){
         this.str = string;
@@ -29,4 +28,13 @@ public class Controller {
         return modifiedString.toString();
     }
 
+    @GetMapping("/modify/length")
+    public int getLength(){
+        if(this.str == null || this.str.equals("")){
+            return 0;
+        }
+        else {
+            return this.str.length();
+        }
+    }
 }
